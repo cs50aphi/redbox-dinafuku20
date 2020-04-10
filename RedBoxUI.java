@@ -16,7 +16,7 @@ public class RedBoxUI
       System.out.println("Welcome to Redbox!");
       System.out.println("What can I help you with today?");
       System.out.println();
-      
+
       while(true)
       {
          printMenu();
@@ -27,9 +27,9 @@ public class RedBoxUI
             ArrayList<String> availableTitles = new ArrayList<String>();
             availableTitles = rm.getAvailableMovies();
             System.out.println(availableTitles);
-      
+
             System.out.println("PRESS ENTER TO GO BACK TO THE MENU");
-            sn.nextLine();         
+            sn.nextLine();
          }
          else if(option == 2)
          {
@@ -39,24 +39,46 @@ public class RedBoxUI
             // Complete the code to rent a movie. This code should let the user
             // know if the movie was rented successfully or not (not could occur if
             // the movie they enter is not available).
+
+            if (rm.rent(title))
+            {
+               System.out.println("You have rented " + title + "!");
+            }
+            else
+            {
+               System.out.println("Sorry...RedBoxMachine doesn't have " + title + ".");
+            }
          }
          else if(option == 3)
          {
             System.out.println("What movie would you like to return?");
             title = sn.nextLine();
-            
+
             // Complete the code to return a movie. Make sure to include a
             // message after the movie has been returned.
-         
+
+            rm.returnMovie(title);
+            System.out.println("Thanks for returning " + title + "!");
+
          }
          else if(option == 4)
          {
             System.out.println("What movie would you like to search for?");
             title = sn.nextLine();
-            
+
             // Complete the code to search for a movie.  Make sure to include
             // messages that inform the user whether the movie was found or not.
-         
+
+            if (rm.searchForMovie(title) == -1)
+            {
+               System.out.println("This movie is not in RedBox :(");
+            }
+            else
+            {
+               System.out.println("RedBox has " + title + ".");
+            }
+
+
          }
          else if(option == 5)
          {
@@ -70,7 +92,7 @@ public class RedBoxUI
          }
       }
    }
-   
+
    //Prints all available options to the console.
    public static void printMenu()
    {
