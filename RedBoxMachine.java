@@ -13,6 +13,7 @@ public class RedBoxMachine
 {
    //Create an instance variable to hold all of the DVDs.
    ArrayList<DVD> DVDs = new ArrayList<DVD>();
+   ArrayList<String> Names = new ArrayList<String>();
    /** the list of DVDs */
 
    /** Constructs a Redbox Machine and fills it with DVDs
@@ -83,7 +84,7 @@ public class RedBoxMachine
             DVDs.get(i).decrementCopies();
             if (DVDs.get(i).getNumCopies() == 0)
             {
-               DVDs.remove(title);
+               DVDs.remove(searchForMovie(title));
             }
             return true;
          }

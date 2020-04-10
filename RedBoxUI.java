@@ -33,8 +33,10 @@ public class RedBoxUI
          }
          else if(option == 2)
          {
+            rm.getAvailableMovies();
             System.out.println("What movie would you like to rent?");
             title = sn.nextLine();
+
 
             // Complete the code to rent a movie. This code should let the user
             // know if the movie was rented successfully or not (not could occur if
@@ -48,6 +50,7 @@ public class RedBoxUI
             {
                System.out.println("Sorry...RedBoxMachine doesn't have " + title + ".");
             }
+            System.out.println("");
          }
          else if(option == 3)
          {
@@ -59,7 +62,7 @@ public class RedBoxUI
 
             rm.returnMovie(title);
             System.out.println("Thanks for returning " + title + "!");
-
+            System.out.println("");
          }
          else if(option == 4)
          {
@@ -77,14 +80,14 @@ public class RedBoxUI
             {
                System.out.println("RedBox has " + title + ".");
             }
-
-
+            System.out.println("");
          }
          else if(option == 5)
          {
             System.out.println("Thanks for using Redbox!");
             System.out.println("Have a great day and come back soon!");
             System.exit(0);
+            System.out.println("");
          }
          else
          {
